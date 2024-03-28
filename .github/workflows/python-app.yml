@@ -15,7 +15,7 @@ jobs:
   build:
 
     env:
-      CALCULATOR_PATH : './data/calculator_history.csv'
+      CALCULATOR_PATH : './data/history_of_calculations.csv'
     runs-on: ubuntu-latest
 
     steps:
