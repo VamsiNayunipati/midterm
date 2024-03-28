@@ -9,7 +9,7 @@ class SubtractionCommand(Command):
             first_input = float(input("Enter the 1st value: "))
             second_input = float(input("Enter the 2nd value: "))
             result = first_input - second_input
-            print('The Operation result is ', result)
+            print('The Operation result is', result)
             logging.info('Subtract operation is successful')
             data = ['Subtraction', first_input, second_input]
             data_History = operations_History.fetch_list()
