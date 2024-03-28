@@ -91,37 +91,50 @@
         History is cleared.
         2024-03-27 20:15:13,154 - root - INFO - History of the calculator is cleared.
 
-
+****
 ### Design Patterns used:
-1. **Facade Design Pattern:**  
-The _Facade design pattern_ is a structural pattern in software design that provides a simplified interface to a complex subsystem.  
-
-    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/history/__init__.py) implements the Facade design pattern by providing a simplified interface to the CSV file. The History class hides the complexity of managing file paths, handling file I/O operations. It provides methods like data_input, fetch_list, fetch_data_frame, and clear that allows users an interface for managing history data, hiding the technical aspects of how it's stored.
-2. **Command Design Pattern:**  
-The command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event. 
-
-    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py) implements the Command design pattern by encapsulating the logic for performing an addition operation and storing the history in a separate class - AdditionCommand.
-3. **Plugin Design Pattern:**
-The Plugin Pattern is a design pattern that allows for the dynamic extension of functionalities within an application without modifying the core code.
+1. **Plugin Design Pattern:**  
+The _Plugin Pattern_ is a design pattern that allows for the dynamic extension of functionalities within an application without modifying the core code.
 
     This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py) implements the Plugin pattern to achieve dynamic extension through plugins that provide functionalities implemented as Command subclasses.
-4. **Singleton Design Pattern:**
-The Singleton pattern is a design pattern that restricts the instantiation of a class to a single object. It ensures that only one instance of a class exists throughout the application, and it provides a global access point to that instance.  
+
+2. **Singleton Design Pattern:**  
+The _Singleton pattern_ is a design pattern that restricts the instantiation of a class to a single object. It ensures that only one instance of a class exists throughout the application, and it provides a global access point to that instance.  
 
     This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py) implements 
     the singleton design pattern as  
     ```if __name__ == "__main__":``` block, a single instance of the App class is created: ```app = App()```.  
     This instance is then used throughout the application without any attempt to create other instances, ensuring a single instance for core functionalities.
 
+3. **Command Design Pattern:**  
+The _command pattern_ is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event. 
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py) implements the Command design pattern by encapsulating the logic for performing an addition operation and storing the history in a separate class - AdditionCommand.
+4. **Facade Design Pattern:**  
+The _Facade design pattern_ is a structural pattern in software design that provides a simplified interface to a complex subsystem.  
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/history/__init__.py) implements the Facade design pattern by providing a simplified interface to the CSV file. The History class hides the complexity of managing file paths, handling file I/O operations. It provides methods like data_input, fetch_list, fetch_data_frame, and clear that allows users an interface for managing history data, hiding the technical aspects of how it's stored. 
+
+****
 ### Environment variables:
 Create a **.env** file under the main directory and save the location as a key-value pair.  
 > CALCULATOR_PATH = './data/history_of_calculations.csv'
 
+****
+### Logging:  
+For Monitoring, Troubleshoting and Debugging the code, we use logging.  
 
-### Logging:
+Whatever the operations we are performing with the code, everything will be saved in a log file along with the time stamps. This log file will be helpful for debugging if there are any errors in the code or execution. With this log file, it is easy to debug and troubleshoot the errors. ([Example](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py)).
 
-### Easier to Ask for Forgiveness than Permission (EAFP):
+This [Configuration File](https://github.com/VamsiNayunipati/midterm/blob/master/logging.conf) specifies the logging settings such as loggers, handlers, and formatters. This configuration ensures that all ```INFO``` level messages are logged to a ```app.log``` file in a clear format.  
 
 
+****
+### LBYL and EAFP:  
+**LBYL** is a programming paradigm where code explicitly checks for conditions or states before performing an operation.
 
+**EAFP** approach emphasizes trying an operation and dealing with any exceptions that occur rather than explicitly checking for conditions before performing the operation.  
+EAFP is used in this [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py) which implements Try-Except (Exception Handling) which is a EAFP, allows the code to attempt the addition operation, assuming that the input values are valid and can be added together. If a ValueError occurs during the conversion of input values to floats (e.g., if the user enters non-numeric values), the code catches the exception and executes the error-handling code.
+
+****
 ### Demonstration video: [Click here]()
