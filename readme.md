@@ -2,7 +2,7 @@
 ### Instructions:
 1. Create a new git repository.
 2. Clone that repository to the local, add all the reequired files and install the dependecncies:  
-``` pip3 install requirements.txt```
+```pip3 install -r requirements.txt```
 3. Create a **.env** file for the environment variable and the path with the name of the file as a key - value pair.
 4. Run the **main.py** file using ```python3 main.py```
 5. After the successful compilation, we will see option to enter the command which we want to execute. Here we are using arithmetic commands like **Addition, Subtraction, Multiplication and Division** operations.
@@ -92,14 +92,36 @@
         2024-03-27 20:15:13,154 - root - INFO - History of the calculator is cleared.
 
 
-### Design Patterns used
+### Design Patterns used:
+1. **Facade Design Pattern:**  
+The _Facade design pattern_ is a structural pattern in software design that provides a simplified interface to a complex subsystem.  
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/history/__init__.py) implements the Facade design pattern by providing a simplified interface to the CSV file. The History class hides the complexity of managing file paths, handling file I/O operations. It provides methods like data_input, fetch_list, fetch_data_frame, and clear that allows users an interface for managing history data, hiding the technical aspects of how it's stored.
+2. **Command Design Pattern:**  
+The command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event. 
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py) implements the Command design pattern by encapsulating the logic for performing an addition operation and storing the history in a separate class - AdditionCommand.
+3. **Plugin Design Pattern:**
+The Plugin Pattern is a design pattern that allows for the dynamic extension of functionalities within an application without modifying the core code.
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py) implements the Plugin pattern to achieve dynamic extension through plugins that provide functionalities implemented as Command subclasses.
+4. **Singleton Design Pattern:**
+The Singleton pattern is a design pattern that restricts the instantiation of a class to a single object. It ensures that only one instance of a class exists throughout the application, and it provides a global access point to that instance.  
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py) implements 
+    the singleton design pattern as  
+    ```if __name__ == "__main__":``` block, a single instance of the App class is created: ```app = App()```.  
+    This instance is then used throughout the application without any attempt to create other instances, ensuring a single instance for core functionalities.
+
+### Environment variables:
+Create a **.env** file under the main directory and save the location as a key-value pair.  
+> CALCULATOR_PATH = './data/history_of_calculations.csv'
 
 
-### Environment variables
+### Logging:
 
-### Logging
+### Easier to Ask for Forgiveness than Permission (EAFP):
 
-### "Look Before You Leap" (LBYL) and "Easier to Ask for Forgiveness than Permission" (EAFP)
 
 
 ### Demonstration video: [Click here]()
