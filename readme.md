@@ -1,7 +1,7 @@
 # Midterm Exam - Calculator Project
 ### Instructions:
 1. Create a new git repository.
-2. Clone that repository to the local, add all the reequired files and install the dependecncies:  
+2. Clone that repository to the local, add all the required files and install the dependecncies:  
 ```pip3 install -r requirements.txt```
 3. Create a **.env** file for the environment variable and the path with the name of the file as a key - value pair.
 4. Run the **main.py** file using ```python3 main.py```
@@ -114,6 +114,11 @@ The _command pattern_ is a behavioral design pattern in which an object is used 
 The _Facade design pattern_ is a structural pattern in software design that provides a simplified interface to a complex subsystem.  
 
     This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/history/__init__.py) implements the Facade design pattern by providing a simplified interface to the CSV file. The History class hides the complexity of managing file paths, handling file I/O operations. It provides methods like data_input, fetch_list, fetch_data_frame, and clear that allows users an interface for managing history data, hiding the technical aspects of how it's stored. 
+5. **Factory Method Design Pattern:**  
+The _Factory Method Design Pattern_ is a creational pattern that provides an interface for creating objects but allows subclasses to decide which class to instantiate.  
+
+    This [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py) implements Factory Method Design Pattern where a newly created plugin is dynamically loaded without any further configurations in the function  
+     ```def load_plugins(self):```. 
 
 ****
 ### Environment variables:

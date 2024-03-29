@@ -40,7 +40,7 @@ def test_unknown_command(capfd, monkeypatch):
 def test_add_command(capfd, monkeypatch):
     """Test how the REPL handles an add command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
-    inputs = iter(['addition', '2', '2', 'exit'])
+    inputs = iter(['addition', '1', '1', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()
@@ -48,13 +48,13 @@ def test_add_command(capfd, monkeypatch):
         app.start()
 
     captured = capfd.readouterr()
-    assert "The Operation result is 4.0" in captured.out
+    assert "The Operation result is 2.0" in captured.out
 
 
 def test_subtract_command(capfd, monkeypatch):
     """Test how the REPL handles a subtract command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
-    inputs = iter(['subtraction', '2', '2', 'exit'])
+    inputs = iter(['subtraction', '1', '1', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()
@@ -68,7 +68,7 @@ def test_subtract_command(capfd, monkeypatch):
 def test_multiplication_command(capfd, monkeypatch):
     """Test how the REPL handles a multiply command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
-    inputs = iter(['multiplication', '2', '2', 'exit'])
+    inputs = iter(['multiplication', '4', '5', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()
@@ -76,13 +76,13 @@ def test_multiplication_command(capfd, monkeypatch):
         app.start()
 
     captured = capfd.readouterr()
-    assert "The Operation result is: 4.0" in captured.out
+    assert "The Operation result is: 20.0" in captured.out
 
 
 def test_division_command(capfd, monkeypatch):
     """Test how the REPL handles a divide command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
-    inputs = iter(['division', '2', '2', 'exit'])
+    inputs = iter(['division', '5', '10', 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()
@@ -90,7 +90,7 @@ def test_division_command(capfd, monkeypatch):
         app.start()
 
     captured = capfd.readouterr()
-    assert "The Operation result is 1.0" in captured.out
+    assert "The Operation result is 0.5" in captured.out
 
 def test_fetch_command(capfd, monkeypatch):
     """Test how the REPL handles an fetch command before exiting."""
@@ -108,7 +108,7 @@ def test_fetch_command(capfd, monkeypatch):
 def test_delete_command(capfd, monkeypatch):
     """Test how the REPL handles an delete command before exiting."""
     # Simulate user entering an unknown command followed by 'exit'
-    inputs = iter(['delete', 2, 'exit'])
+    inputs = iter(['delete', 1, 'exit'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
 
     app = App()

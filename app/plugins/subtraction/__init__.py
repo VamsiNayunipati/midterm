@@ -19,4 +19,4 @@ class SubtractionCommand(Command):
         except ValueError:
                 print("please Enter a valid value")
                 logging.info('Operation failed')
-      
+  
