@@ -138,8 +138,10 @@ This [Configuration File](https://github.com/VamsiNayunipati/midterm/blob/master
 ### LBYL and EAFP:  
 **LBYL** is a programming paradigm where code explicitly checks for conditions or states before performing an operation.
 
+Here in this [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/__init__.py), LBYL is used in the configure_logging function where it  first checks if a logging configuration file exists (logging.conf). If it does, it configures logging using that file; otherwise, it configures basic logging with INFO level and a specific format.
+
 **EAFP** approach emphasizes trying an operation and dealing with any exceptions that occur rather than explicitly checking for conditions before performing the operation.  
 EAFP is used in this [code](https://github.com/VamsiNayunipati/midterm/blob/master/app/plugins/addition/__init__.py) which implements Try-Except (Exception Handling) which is a EAFP, allows the code to attempt the addition operation, assuming that the input values are valid and can be added together. If a ValueError occurs during the conversion of input values to floats (e.g., if the user enters non-numeric values), the code catches the exception and executes the error-handling code.
 
 ****
-### Demonstration video: [Click here]()
+### Demonstration video: [Click here](https://njit.webex.com/recordingservice/sites/njit/recording/eefd4b92d02a103c9fabfa55bffa1b08/playback)
